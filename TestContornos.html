@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Perfil de Usuario</title>
+</head>
+
+<body>
+    <h1>Perfil de Usuario</h1>
+
+    <h2>¡Hola, <span id="userName"></span>!</h2><br>
+    <h1>Historial de Pruebas</h1>
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resultados del Cuestionario</title>
+        <link rel="stylesheet" href="estilostests.css">
+    </head>
+    <body>
+        <h1>Resultados del Cuestionario de Pruebas de Software</h1>
+    
+        <div id="results-container">
+            <p>Test Realizado: <span id="test-name"></span></p>
+            <p>Preguntas Respondidas Correctamente: <span id="correct-answers"></span></p>
+            <p>Porcentaje de Aciertos: <span id="accuracy"></span>%</p>
+            <p>Total de Preguntas: <span id="total-questions"></span></p>
+        </div>
+    
+        <button onclick="window.location.href='index.html'">Página Principal</button>
+    
+        <script>
+            // Recuperar los datos del test desde localStorage
+            const testName = localStorage.getItem('testName');
+            const correctAnswers = localStorage.getItem('correctAnswers');
+            const totalQuestions = localStorage.getItem('totalQuestions');
+            const accuracy = localStorage.getItem('accuracy');
+    
+            // Mostrar los resultados en la página
+            document.getElementById("test-name").textContent = testName || "Desconocido";
+            document.getElementById("correct-answers").textContent = correctAnswers || "0";
+            document.getElementById("accuracy").textContent = accuracy || "0";
+            document.getElementById("total-questions").textContent = totalQuestions || "0";
+        </script>
+    </body>
+    </html>
+    
+</body>
+
+</html>
