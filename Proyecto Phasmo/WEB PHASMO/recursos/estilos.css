@@ -397,14 +397,15 @@ h1 {
 .desaparece ul li {
   list-style: none;
   color: #ffffff;
-  letter-spacing: 10px;
-  font-size: 5em;
+  letter-spacing: 3px;
+  font-size: 6em;
   font-weight: bold;
   filter: blur(1px);
+  font-family: 'letra';
 }
 
 .desaparece ul:hover li {
-  animation: humo 2s linear forwards;
+  animation: humo 1s linear forwards;
 }
 
 @keyframes humo {
@@ -488,6 +489,13 @@ h1 {
   box-shadow: 10px 10px 5px rgb(46, 46, 46);
 }
 
+h2{
+  font-family: 'letra';
+  padding: -100px;
+  margin-top: -1px;
+  margin-bottom: -6px;
+}
+
 .nombre_logo_pruebas {
   display: flex;
   margin-top: 10px;
@@ -505,52 +513,60 @@ h1 {
   width: 450px;
   margin-left: 500px;
   filter: drop-shadow(5px 5px 5px rgb(46, 46, 46));
+
 }
 
 .descripcion {
   margin-left: 20px;
   margin-right: 20px;
   color: rgb(0, 0, 0);
-  background-color: rgba(236, 209, 173, 0.438);
+  background-color: rgba(92, 18, 18, 0.61);
   width: 1650px;
   font-size: 1.5em;
   margin-top: -40px;
   border-radius: 10px;
   padding-left: 10px;
   margin-right: 0px;
+  border-radius: 10px;
+
 }
 
 .descripcion p {
-  margin-top: -10px;
+  margin-top: 10px;
   padding: auto;
+
 }
 
 .caracteristicas_tips {
   display: flex;
   margin-left: 20px;
   margin-right: 20px;
+  border-radius: 10px;
+
 }
 
 .caracteristicas {
-  background-image: url(/recursos/imagenes/nav/folio_corcho.jpg);
-  margin-right: 20px;
+  background-color: rgba(92, 18, 18, 0.61);  margin-right: 20px;
   width: 600px;
   font-size: 1.5em;
   padding: 10px;
+  border-radius: 10px;
+
 
 }
 
 .tips {
-  background-image: url(/recursos/imagenes/nav/folio_corcho.jpg);
-  width: 700px;
+  background-color: rgba(92, 18, 18, 0.61);  width: 700px;
   font-size: 1.5em;
   padding: 10px;
+  border-radius: 10px;
+
 
 }
 
 .datos {
-  background-image: url(/recursos/imagenes/nav/folio_corcho.jpg);
-  margin-left: 20px;
+  background-color: rgba(92, 18, 18, 0.61);  margin-left: 20px;
+  border-radius: 10px;
 
   width: 300px;
   font-size: 1.5em;
