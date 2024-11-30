@@ -29,12 +29,16 @@ video {
 }
 
 main {
-  height: calc(100vh - 100px); /* Adjust 110px to match nav height + margin */
   overflow-y: scroll; /* Enable vertical scrolling within main */
   padding-bottom: 500px; /* Add some padding to the bottom to avoid content being cut off */
   position: fixed; /*remove fixed position*/
-  padding: 60px;
+  padding-top: 30px;
   height: 80%;
+  overflow: hidden; /* Ocultar barra de scroll */
+  overflow-y: scroll; /* Mantener la capacidad de scroll vertical */
+  scrollbar-width: none; /* Para navegadores compatibles (Firefox) */
+  margin-top: 140px; /* Adjust this value to match nav height + margin */
+  margin-bottom: 20px ;
 }
 
 
@@ -58,6 +62,7 @@ nav {
   margin-top: 1%;
   color: #000000;
   font-family: 'letra', monospace;
+  margin-bottom: 3%;
 }
 
 
@@ -140,7 +145,7 @@ nav a:visited{
   width: 100px;
   margin-right: 300px;
   margin-left: 20px;
-  
+
 }
 
 
@@ -197,17 +202,20 @@ nav a:visited{
   color: #ddd;
   text-shadow: 1px 1px 2px black;
 }
-main {
-  margin-top: 110px; /* Adjust this value to match nav height + margin */
-  padding-bottom: -50px; /* Add some padding to the bottom to avoid content being cut off */
-
-}
 
 h2{
-  font-size: 3em;
+  font-size: 4em;
   text-align: center;
   justify-content: center;
   margin-left: 120px;
+  color: rgb(66, 16, 73);
+  font-family: 'letra', monospace;
+  margin-bottom: -10px;
+  margin-top: -2px;
+  color: rgb(66, 16, 73);
+text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #feffff, -2px 2px 0 #ffffff, -2px -2px 0 #e5e7e9, 2px 0px 0 #ffffff, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+
+
 }
 
 h3{
@@ -215,3 +223,33 @@ h3{
   font-family: 'letra', monospace;
   font-size: 1.3em;
 }
+
+
+        #btnArriba {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(116, 39, 126);
+            color: white;
+            text-decoration: none; /* Quitar subrayado del enlace */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
+            font-weight: bold;
+            transition: background-color 0.3s; /* Keep the transition for hover effect */
+            z-index: 1000;
+        }
+
+        #btnArriba:hover {
+            background-color: rgb(51, 13, 56);
+        }
+
+
+        #espiritu {
+          scroll-margin-top: 85px; /* Define 30px de margen superior al hacer scroll */
+      }
