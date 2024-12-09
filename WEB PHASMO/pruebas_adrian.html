@@ -12,7 +12,7 @@
             src: url('/recursos/letra.ttf') format('truetype');
         }
 
-        html{
+        html {
             scrollbar-width: none;
         }
 
@@ -197,13 +197,16 @@
         }
 
 
+
+
         .contenedor_de_pruebas {
             display: flex;
         }
 
         .container_pruebas {
-            width: 70%;
-            margin-left: 23%;
+            width: 60%;
+            height: 300px;
+            margin-left: 35%;
             background: rgba(0, 0, 0, 0.7);
             border: 1px solid rgb(116, 39, 126);
             border-radius: 10px;
@@ -212,6 +215,12 @@
             text-align: center;
             margin-bottom: 1%;
             margin-top: 1%;
+            font-family: 'letra';
+        }
+
+        .container_pruebas h2{
+            margin-left: 0px;
+            font-size: 3em;
         }
 
         .gallery {
@@ -223,12 +232,12 @@
         }
 
         .gallery img {
-            height: 130px;
+            height: 105px;
             cursor: pointer;
             transition: transform 0.2s ease, filter 0.2s ease;
-            border: 1px solid #555;
+            border: 1px solid rgba(0, 0, 0, 0);
             border-radius: 8px;
-            filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.7));
+            filter: drop-shadow(3px 3px 5px black);
         }
 
         .gallery img:hover {
@@ -238,19 +247,46 @@
 
         .posibles_fantasmas {
             margin-top: 20px;
-            font-size: 1.2em;
+            font-size: x-large;
+            /* display: none; */
         }
 
-        .posibles_fantasmas p{
-            font-size: larger;
+        .posibles_fantasmas p {
+            font-size: xx-large;
         }
 
-        #lista_fantasmas {
-            display: grid;
-            grid-template-columns: repeat(4, 0.1fr);
-            gap: 10px;
-            text-align: center;
-            justify-content: center;
+        #lista_fantasmas{
+            margin-top: -20px;
+        }
+
+
+        /* Carrusel */
+        .carousel {
+            margin-top: 1000px;
+            position: relative;
+            width: 600px;
+            /* Ancho del carrusel */
+            height: 400px;
+            /* Alto del carrusel */
+            overflow: hidden;
+            /* Oculta imágenes fuera del contenedor */
+        }
+
+        .carousel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            /* Las imágenes son invisibles por defecto */
+            transition: opacity 1s ease;
+            /* Transición suave */
+        }
+
+        .carousel img.active {
+            opacity: 1;
+            /* Solo la imagen activa es visible */
         }
     </style>
 </head>
@@ -378,9 +414,10 @@
 
         <a id="btnArriba" href="#espiritu">&#x2191;</a>
 
-        <div class="contenedor_de_pruebas">
+        <!-- Descubridor de fantasmas -->
+        <div class="contenedor_de_pruebas" id="espiritu">
             <div class="container_pruebas">
-                <h2>PRUEBAS ENCONTRADAS</h2>
+                <h2>¿QUE PRUEBAS ENCONTRASTE?</h2>
                 <div class="gallery">
                     <img src="recursos\imagenes\pruebas\emf.png" alt="emf5">
                     <img src="recursos\imagenes\pruebas\diario-Photoroom.png" alt="escritura">
@@ -391,23 +428,55 @@
                     <img src="recursos\imagenes\pruebas\termometro-Photoroom.png" alt="temperaturas">
                 </div>
 
-                <div class="posibles_fantasmas">
-                    <p>Posibles fantasmas:</p>
+                <div class="posibles_fantasmas" id="posibles_fantasmas">
+                    <p>POSIBLES FANTASMAS:</p>
                     <div id="lista_fantasmas"></div>
                 </div>
 
             </div>
         </div>
 
+        <!-- Carrusel -->
+        <div id="carousel" class="carousel">
+            <img src="/recursos/imagenes/pruebas/emf/emf_tier1.png" alt="Imagen 1" class="active">
+            <img src="/recursos/imagenes/pruebas/emf/emf_tier2.png" alt="Imagen 2">
+            <img src="/recursos/imagenes/pruebas/emf/emf_tier3.png" alt="Imagen 3">
+        </div>
+
     </main>
 
 </body>
 
+<!-- Carrusel -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const images = document.querySelectorAll('#carousel img'); // Seleccionar imágenes
+        let currentIndex = 0; // Índice de la imagen actual
+
+        function changeImage() {
+            // Quitar la clase "active" de la imagen actual
+            images[currentIndex].classList.remove('active');
+
+            // Calcular el índice de la siguiente imagen
+            currentIndex = (currentIndex + 1) % images.length;
+
+            // Añadir la clase "active" a la nueva imagen
+            images[currentIndex].classList.add('active');
+        }
+
+        // Cambiar la imagen cada 2 segundos
+        setInterval(changeImage, 2000);
+    });
+
+</script>
+
+<!-- Descubridor de fantasmas -->
 <script>
 
     document.addEventListener('DOMContentLoaded', function () {
         const imagenes_pruebas = document.querySelectorAll('.gallery img');
         const possibleGhostsDiv = document.getElementById('lista_fantasmas');
+        const posibles_fantasmas = document.getElementById('posibles_fantasmas');
 
         const evidenciaFantasmas = {
             "Espíritu": ["emf5", "spirit box", "escritura"],
@@ -430,7 +499,7 @@
             "Gemelos": ["emf5", "espíritu box", "temperaturas"],
             "Raiju": ["emf5", "orbes", "dots"],
             "Obake": ["emf5", "ultravioleta", "orbes"],
-            "Mímico": [" Spirit box", "ultravioleta", "temperaturas"],
+            "Mímico": ["spirit box", "ultravioleta", "temperaturas", "orbes"],
             "Moroi": ["spirit box", "escritura", "temperaturas"],
             "Deogen": ["spirit box", "escritura", "puntos"],
             "Thaye": ["orbes", "escritura", "puntos"]
@@ -440,7 +509,7 @@
         let evidenciaDescartada = []; // Lista de evidencias descartadas
 
         // Mostrar todos los fantasmas posibles al cargar la página
-        // mostrarFantasmasPosibles(Object.keys(evidenciaFantasmas));
+        mostrarFantasmasPosibles(Object.keys(evidenciaFantasmas));
 
         // Añade evento de click a cada imagen
         imagenes_pruebas.forEach(imagen => {
@@ -450,21 +519,29 @@
                 // Determinar estado actual
                 if (!evidenciaSeleccionada.includes(tipoEvidencia) && !evidenciaDescartada.includes(tipoEvidencia)) {
                     // Si no está seleccionada ni descartada: confirmarla (verde)
-                    imagen.style.borderColor = 'green';
+                    imagen.style.filter = 'drop-shadow(3px 3px 5px rgba(0, 255, 0, 0.4))';
                     evidenciaSeleccionada.push(tipoEvidencia);
                 } else if (evidenciaSeleccionada.includes(tipoEvidencia)) {
                     // Si está confirmada, descartarla (rojo)
-                    imagen.style.borderColor = 'red';
+                    imagen.style.filter = 'drop-shadow(3px 3px 5px rgba(255, 0, 0, 0.4))';
                     evidenciaSeleccionada = evidenciaSeleccionada.filter(ev => ev !== tipoEvidencia);
                     evidenciaDescartada.push(tipoEvidencia);
                 } else if (evidenciaDescartada.includes(tipoEvidencia)) {
-                    // Si está descartada, resetearla (gris)
-                    imagen.style.borderColor = '#555';
+                    // Si está descartada, resetearla (negro)
+                    imagen.style.filter = 'drop-shadow(3px 3px 5px black)';
                     evidenciaDescartada = evidenciaDescartada.filter(ev => ev !== tipoEvidencia);
                 }
 
                 // Calcular y mostrar los fantasmas posibles
                 const fantasmasPosibles = deducirFantasmasPosibles(evidenciaSeleccionada, evidenciaDescartada, evidenciaFantasmas);
+
+                // // Mostrar el div solo si hay algo seleccionado
+                // if (evidenciaSeleccionada.length > 0 || evidenciaDescartada.length > 0) {
+                //     posibles_fantasmas.style.display = 'block';
+                // } else {
+                //     posibles_fantasmas.style.display = 'none';
+                // }
+
                 mostrarFantasmasPosibles(fantasmasPosibles);
             });
         });
@@ -489,14 +566,11 @@
             if (fantasmasPosibles.length === 0) {
                 possibleGhostsDiv.textContent = 'Ninguno'; // Mostrar 'Ninguno' si no hay fantasmas
             } else {
-                // Si hay fantasmas posibles, mostrarlos en el contenedor
-                fantasmasPosibles.forEach(fantasma => {
-                    const fantasmaDiv = document.createElement('div');
-                    fantasmaDiv.textContent = fantasma;
-                    possibleGhostsDiv.appendChild(fantasmaDiv);
-                });
+                // Crear una cadena de texto separada por comas y establecerla como contenido
+                possibleGhostsDiv.textContent = fantasmasPosibles.join(', ');
             }
         }
+
 
     });
 
