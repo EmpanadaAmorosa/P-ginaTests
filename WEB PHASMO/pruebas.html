@@ -6,373 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pruebas - Phasmoguía</title>
     <link rel="shortcut icon" href="recursos/icono.ico" type="image/x-icon">
-    <style>
-        @font-face {
-            font-family: 'letra';
-            src: url('letra.ttf') format('truetype');
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            margin: 0;
-            padding: 0;
-            background-color: #111;
-            color: #eee;
-            min-height: 100vh;
-            overflow-y: scroll;
-            scrollbar-width: none;
-        }
-
-        #video_fondo {
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        main {
-            overflow-y: scroll;
-            padding-bottom: 500px;
-            position: fixed;
-            padding-top: 30px;
-            height: 80%;
-            overflow: hidden;
-            overflow-y: scroll;
-            scrollbar-width: none;
-            margin-top: 140px;
-            margin-bottom: 20px;
-        }
-
-        nav {
-            background-image: url("/recursos/imagenes/nav/lilafondo.PNG");
-            background-size: cover;
-            background-position: center center;
-            display: flex;
-            padding: 10px;
-            border-radius: 15px;
-            height: 100px;
-            width: 90%;
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 100;
-            font-size: 30px;
-            box-shadow: 20px 20px 10px black;
-            margin-top: 1%;
-            color: #000000;
-            font-family: 'letra', monospace;
-            margin-bottom: 3%;
-        }
-
-        nav a:link {
-            color: black;
-            text-decoration: none;
-            font-family: 'letra';
-        }
-
-        nav a:visited {
-            color: black;
-            text-decoration: none;
-            font-family: 'letra';
-        }
-
-        .menu_desplegables_y_logo {
-            display: flex;
-            align-items: center;
-            gap: 1px;
-            font-family: 'letra';
-        }
-
-        .menu_desplegables_y_logo ul {
-            display: flex;
-            gap: 20px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            font-family: 'letra';
-        }
-
-        .menu_desplegables_y_logo .desplegable {
-            position: relative;
-        }
-
-        .menu_desplegables_y_logo .desplegable p {
-            background-color: inherit;
-            padding: 8px 16px;
-            margin: 0;
-            width: 80px;
-            text-align: center;
-            transition: background-color 0.3s ease;
-            border-radius: 10px;
-            font-family: 'letra';
-        }
-
-        .menu_desplegables_y_logo .contenido-desplegable {
-            display: none;
-            position: absolute;
-            z-index: 1;
-            min-width: 140px;
-            text-align: left;
-            padding: 10px;
-            border: 2px solid black;
-            font-family: 'letra';
-        }
-
-        .menu_desplegables_y_logo .contenido-desplegable a {
-            display: block;
-            width: 100%;
-            padding: 5px 2px;
-            text-decoration: none;
-            color: black;
-            transition: background-color 0.3s ease;
-            border-radius: 10px;
-            break-inside: avoid-column;
-            font-family: 'letra';
-        }
-
-        .menu_desplegables_y_logo .contenido-desplegable a:hover {
-            color: rgb(116, 39, 126);
-        }
-
-        .menu_desplegables_y_logo .desplegable:hover .contenido-desplegable {
-            display: block;
-        }
-
-        .logo {
-            width: 100px;
-            margin-right: 300px;
-            margin-left: 30px;
-        }
-
-        .fantasma {
-            margin: 30px auto;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgb(116, 39, 126);
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
-            width: 80%;
-            display: block;
-        }
-
-        .fantasma-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .fantasma-img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-        }
-
-        .imagenes-derecha {
-            display: flex;
-            gap: 10px;
-        }
-
-        .foto_pruebas {
-            width: 70px;
-            height: 70px;
-            object-fit: cover;
-            filter: drop-shadow(5px 5px 5px black);
-        }
-
-        .apartados {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .apartados article {
-            background: rgba(20, 20, 20, 0.8);
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid #555;
-            color: #ddd;
-            text-shadow: 1px 1px 2px black;
-        }
-
-        h2 {
-            font-size: 4em;
-            text-align: center;
-            justify-content: center;
-            margin-left: 120px;
-            color: rgb(66, 16, 73);
-            font-family: 'letra', monospace;
-            margin-bottom: -10px;
-            margin-top: -2px;
-            color: rgb(66, 16, 73);
-            text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #feffff, -2px 2px 0 #ffffff, -2px -2px 0 #e5e7e9, 2px 0px 0 #ffffff, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
-        }
-
-        h3 {
-            text-align: center;
-            font-family: 'letra', monospace;
-            font-size: 1.3em;
-        }
-
-        #btnArriba {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: rgb(116, 39, 126);
-            color: white;
-            text-decoration: none;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            font-size: 24px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            z-index: 1000;
-        }
-
-        #btnArriba:hover {
-            background-color: rgb(51, 13, 56);
-        }
-
-        #espiritu {
-            scroll-margin-top: 85px;
-        }
-
-
-        .contenedor_de_pruebas {
-            display: flex;
-        }
-
-        .container_pruebas {
-            width: 40%;
-            margin-left: 5%;
-            background: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgb(116, 39, 126);
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            text-align: center;
-            margin-bottom: 1%;
-            margin-top: 1%;
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .header img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            filter: drop-shadow(5px 5px 5px rgb(49, 49, 49));
-        }
-
-        .header h1 {
-            font-size: 4em;
-            text-align: center;
-            color: rgb(66, 16, 73);
-            text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #feffff, -2px 2px 0 #ffffff, -2px -2px 0 #e5e7e9, 2px 0px 0 #ffffff, 0px 2px 0 #e5e7e9, -2px 0px 0 #e6e9ec, 0px -2px 0 #d9dde2;
-            margin: 0;
-            font-family: 'letra';
-        }
-
-        .description {
-            font-size: 1.3em;
-            color: #ddd;
-            text-shadow: 1px 1px 2px black;
-            margin-bottom: 20px;
-        }
-
-        .gallery {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-        }
-
-        .gallery img {
-            width: 30%;
-            cursor: pointer;
-            transition: transform 0.2s ease, filter 0.2s ease;
-            border: 1px solid #555;
-            border-radius: 8px;
-            filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.7));
-        }
-
-        .gallery img:hover {
-            transform: scale(1.05);
-            filter: brightness(1.2);
-        }
-
-
-
-
-
-        .popup_emf {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10000;
-            background: rgba(0, 0, 0, 0.952);
-            width: 60%;
-            height: 80%;
-            justify-content: center;
-            align-items: center;
-            visibility: hidden;
-            opacity: 0;
-            border: 1px solid rgb(116, 39, 126);
-            border-radius: 2%;
-
-        }
-
-        .popup_emf.active {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .popup_emf video {
-            position: relative;
-            max-width: 90%;
-            border: 1px solid #555;
-            border-radius: 2%;
-            margin-left: 5%;
-            margin-top: 2%;
-
-        }
-
-        .descripcion_video_emf{
-            margin-left: 5%;
-            margin-right: 5%;
-            margin-top: 1%;
-            margin-bottom: 1%;
-        }
-
-
-
-        @media (max-width: 991px) {
-            .popup_emf video {
-                max-width: 90%;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="/recursos/estilos_pruebas.css">
 </head>
 
 <body>
 
     <video id="video_fondo" src="/recursos/video_fondo.mp4" muted autoplay loop></video>
+
+    <a id="btnArriba" href="#espiritu">&#x2191;</a>
 
     <nav>
         <div class="menu_desplegables_y_logo">
@@ -482,68 +123,166 @@
         </div>
     </nav>
 
-
-
-
-
-
-
-
     <main>
-
-        <a id="btnArriba" href="#espiritu">&#x2191;</a>
         <div class="contenedor_de_pruebas">
+
             <div class="container_pruebas">
-                <div class="header" id="emf5">
+                <div id="espiritu" class="header">
                     <h1>EMF 5</h1>
                     <img src="/recursos/imagenes/pruebas/emf.png" alt="EMF 5">
                 </div>
                 <p class="description">Algunos fantasmas dejan campos electromagnéticos (EMF) cuando interactúan con
                     cosas. Esté atento a lecturas extra fuertes que alcancen el nivel 5</p>
                 <div class="gallery">
-                    <img src="/recursos/imagenes/pruebas/emf/emf_tier1.png" alt="Nivel 1">
-                    <img src="/recursos/imagenes/pruebas/emf/emf_tier2.png" alt="Nivel 2">
-                    <img src="/recursos/imagenes/pruebas/emf/emf_tier3.png" alt="Nivel 3">
+                    <img src="/recursos/imagenes/pruebas/emf/emf_tier1.png" alt="Nivel 1" onclick="abrirpopup(0,0)">
+                    <img src="/recursos/imagenes/pruebas/emf/emf_tier2.png" alt="Nivel 2" onclick="abrirpopup(0,1)">
+                    <img src="/recursos/imagenes/pruebas/emf/emf_tier3.png" alt="Nivel 3" onclick="abrirpopup(0,2)">
                 </div>
             </div>
 
             <div class="container_pruebas">
-                <div class="header" id="emf5">
-                    <h1>EMF 5</h1>
-                    <img src="/recursos/imagenes/pruebas/emf.png" alt="EMF 5">
+                <div class="header">
+                    <h1>ULTRAVIOLETA</h1>
+                    <img src="/recursos/imagenes/pruebas/huellas.png" alt="Ultravioletas">
                 </div>
-                <p class="description">Algunos fantasmas dejan campos electromagnéticos (EMF) cuando interactúan con
-                    cosas. Esté atento a lecturas extra fuertes que alcancen el nivel 5</p>
+                <p class="description">Algunos fantasmas dejan huellas en la luz ultravioleta.</p>
                 <div class="gallery">
-                    <img src="/recursos/imagenes/pruebas/emf/emf_tier1.png" alt="Nivel 1" onclick="toggle()">
-                    <img src="/recursos/imagenes/pruebas/emf/emf_tier2.png" alt="Nivel 2"">
-                    <img src=" /recursos/imagenes/pruebas/emf/emf_tier3.png" alt="Nivel 3"">
+                    <img src="/recursos/imagenes/pruebas/ultra/uv1.png" alt="Nivel 1" onclick="abrirpopup(1,0)">
+                    <img src="/recursos/imagenes/pruebas/ultra/uv2.png" alt="Nivel 2" onclick="abrirpopup(1,1)">
+                    <img src="/recursos/imagenes/pruebas/ultra/uv3.png" alt="Nivel 3" onclick="abrirpopup(1,2)">
                 </div>
+            </div>
+
+            <div class="container_pruebas">
+                <div class="header">
+                    <h1>ESCRITURA FANTASMA</h1>
+                    <img src="/recursos/imagenes/pruebas/diario-Photoroom.png" alt="Escritura fantasmal">
+                </div>
+                <p class="description">Algunos fantasmas escriben mensajes.</p>
+                <div class="gallery">
+                    <img src="/recursos/imagenes/pruebas/esc/esc1.png" alt="Nivel 1" onclick="abrirpopup(2,0)">
+                    <img src="/recursos/imagenes/pruebas/esc/esc2.png" alt="Nivel 2" onclick="abrirpopup(2,1)">
+                    <img src="/recursos/imagenes/pruebas/esc/esc3.png" alt="Nivel 3" onclick="abrirpopup(2,2)">
+                </div>
+            </div>
+
+            <div class="container_pruebas">
+                <div class="header">
+                    <h1>TEMPERATURAS HELADAS</h1>
+                    <img src="/recursos/imagenes/pruebas/termometro-Photoroom.png" alt="Ultravioletas">
+                </div>
+                <p class="description">Algunos fantasmas bajan la temperatura.</p>
+                <div class="gallery">
+                    <img src="/recursos/imagenes/pruebas/temp/temp1.png" alt="Nivel 1" onclick="abrirpopup(3,0)">
+                    <img src="/recursos/imagenes/pruebas/temp/temp2.png" alt="Nivel 2" onclick="abrirpopup(3,1)">
+                    <img src="/recursos/imagenes/pruebas/temp/temp3.png" alt="Nivel 3" onclick="abrirpopup(3,2)">
+                </div>
+            </div>
+
+        <div class="container_pruebas">
+                <div class="header">
+                    <h1>PROYECTOR D.O.T.S</h1>
+                <img src="/recursos/imagenes/pruebas/dots.png" alt="Ultravioletas" style="width: 80px;">
+            </div>
+                <p class="description">Algunos fantasmas interactúan con el proyector DOTS.</p>
+            <div class="gallery">
+                <img src="/recursos/imagenes/pruebas/dots/dots1.png" alt="Nivel 1" onclick="abrirpopup(4,0)">
+                <img src="/recursos/imagenes/pruebas/dots/dots2.png" alt="Nivel 2" onclick="abrirpopup(4,1)">
+                <img src="/recursos/imagenes/pruebas/dots/dots3.png" alt="Nivel 3" onclick="abrirpopup(4,2)">
             </div>
         </div>
+
+        <div class="container_pruebas">
+                <div class="header">
+                    <h1>ORBES ESPECTRALES</h1>
+                <img src="/recursos/imagenes/pruebas/orbe-Photoroom.png" alt="orbes">
+            </div>
+                <p class="description">Algunos fantasmas aparecen como orbes.</p>
+            <div class="gallery">
+                <img src="/recursos/imagenes/pruebas/orbes/orbes1.png" alt="Nivel 1" onclick="abrirpopup(5,0)">
+                <img src="/recursos/imagenes/pruebas/orbes/orbes2.png" alt="Nivel 2" onclick="abrirpopup(5,1)">
+                <img src="/recursos/imagenes/pruebas/orbes/orbes3.png" alt="Nivel 3" onclick="abrirpopup(5,2)">
+            </div>
+        </div>
+
+    <div class="container_pruebas">
+                <div class="header">
+                    <h1>CAJA ESPECTRAL</h1>
+            <img src="/recursos/imagenes/pruebas/spirirt-Photoroom.png" alt="Ultravioletas" style="width: 120px;">
+        </div>
+                <p class="description">Algunos fantasmas responden a la caja espectral.</p>
+        <div class="gallery">
+            <img src="/recursos/imagenes/pruebas/caja/caja1.png" alt="Nivel 1" onclick="abrirpopup(6,0)">
+            <img src="/recursos/imagenes/pruebas/caja/caja2.png" alt="Nivel 2" onclick="abrirpopup(6,1)">
+            <img src="/recursos/imagenes/pruebas/caja/caja3.png" alt="Nivel 3" onclick="abrirpopup(6,2)">
+        </div>
+    </div>
+</div>
+
+        <div id="popups">
+        </div>
     </main>
+    <script>
+        const videos = [
+            ['/recursos/videos/video_espectro.mp4', '/recursos/videos/emf2.mp4', '/recursos/videos/video3.mp4'],
+            ['/recursos/videos/video_huellas1.mp4', '/recursos/videos/huellas2.mp4', '/recursos/videos/huellas3.mp4'],
+            ['/recursos/videos/esc1.mp4','/recursos/videos/esc2.mp4','/recursos/videos/esc3.mp4'],
+            ['/recursos/videos/temp1.mp4','/recursos/videos/temp2.mp4','/recursos/videos/temp3.mp4'],
+            ['/recursos/videos/dots1.mp4','/recursos/videos/dots2.mp4','/recursos/videos/dots3.mp4'],
+            ['/recursos/videos/orbes1.mp4','/recursos/videos/orbes2.mp4','/recursos/videos/orbes3.mp4'],
+            ['/recursos/videos/caja1.mp4','/recursos/videos/caja2.mp4','/recursos/videos/caja3.mp4']
+        ];
 
-<div class=" popup_emf">
-                    <video src="/recursos/videos/video_espectro.mp4" controls="false"></video>
-                    <div class="descripcion_video_emf">
-                        <h3>EMF NIVEL 1:</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi voluptate dolore ipsam autem
-                            placeat possimus vero blanditiis eligendi aliquam obcaecati sed, eos tempore dicta error quasi
-                            ratione nesciunt nam dolorum.</p>
+        const pruebaDescriptions = [
+        ["Descripción EMF Nivel 1", "Holiholiholi", "Descripción EMF Nivel 3"],
+        ["Descripción UV Nivel 1", "Descripción UV Nivel 2", "Descripción UV Nivel 3"],
+        ["Descripción Escritura Nivel 1", "Descripción Escritura Nivel 2", "Descripción Escritura Nivel 3"],
+        ["Descripción Temperatura Nivel 1", "Descripción Temperatura Nivel 2", "Descripción Temperatura Nivel 3"],
+        ["Descripción DOTS Nivel 1", "Descripción DOTS Nivel 2", "Descripción DOTS Nivel 3"],
+        ["Descripción Orbes Nivel 1", "Descripción Orbes Nivel 2", "Descripción Orbes Nivel 3"],
+        ["Descripción Caja Nivel 1", "Descripción Caja Nivel 2", "Descripción Caja Nivel 3"] // Sin coma adicional aquí
+    ];
+    
+
+        function abrirpopup(galeria, indice) {
+            const popupId = `popup${galeria * 3 + indice}`;
+            let popup = document.getElementById(popupId);
+            if (!popup) {
+                popup = document.createElement('div');
+                popup.className = 'popup';
+                popup.id = popupId;
+                popup.innerHTML = `
+                    <video src="${videos[galeria][indice]}" controls="false" autoplay loop></video>
+                    <div class="descripcion_video">
+                        <h3>Prueba ${galeria +1} Nivel ${indice+1}:</h3>
+                        <p>${pruebaDescriptions[galeria][indice]}</p>
                     </div>
+                `;
+                document.getElementById('popups').appendChild(popup);
+            }
+        popup.classList.add("active"); // Use add instead of toggle for more predictable behavior
+            // play video when popup opens
+            popup.querySelector('video').play();
+        }
 
-                </div>
+        window.addEventListener("click", function(event) {
+        if (!event.target.closest('.gallery img') ){
+            for (let i = 0; i < 7; i++) {
+                for (let j = 0; j < 3; j++) {
+                    const popupId = `popup${i * 3 + j}`;
+                    const popup = document.getElementById(popupId);
+                    if (popup && !popup.contains(event.target)) {
+                        popup.classList.remove("active");
+                        // pause video when popup closes
+                        popup.querySelector('video').pause();
+                    }
+                }
+            }
+        }
+        });
+    </script>
 
-
-</body>
-
-<script>
-    function toggle() {
-        var popup_emf = document.querySelector(".popup_emf")
-        popup_emf.classList.toggle("active")
-    }
-
-</script>
+    </body>
 
 
 

@@ -5,8 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fantasmas - Phasmoguía</title>
-    <link rel="stylesheet" media="all" href="recursos/estilos.css" />
+    <link rel="stylesheet" media="all" href="recursos/estilos_fantasmas.css" />
     <link rel="shortcut icon" href="recursos/icono.ico" type="image/x-icon">
+    <style>
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10000;
+            background: rgb(12, 12, 12);
+            width: 60%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            visibility: hidden;
+            opacity: 0;
+            border: 1px solid rgb(116, 39, 126);
+            border-radius: 2%;
+            transition: opacity 0.3s ease;
+            margin-top: 70px;
+        }
+
+        .popup.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup video {
+            max-width: 90%;
+            border: 1px solid #555;
+            border-radius: 2%;
+            margin: 10px auto;
+            height: 560px;
+            object-fit: cover;
+        }
+
+        .descripcion_video {
+            margin-left: 80px;
+        }
+    </style>
 </head>
 
 <body>
@@ -49,6 +87,7 @@
                         <a href="#raiju">Raiju</a>
                         <a href="#obake">Obake</a>
                         <a href="#mimico">Mímico</a>
+                    </div>
                 </li>
                 <li class="desplegable">
                     <a href="pruebas.html"
@@ -104,7 +143,6 @@
                         <a href="#">Encendedor</a>
                         <a href="#">Medicación de cordura</a>
                         <a href="#"></a>
-
                     </div>
                 </li>
                 <li class="desplegable">
@@ -134,9 +172,12 @@
                 <h2>ESPÍRITU</h2>
 
                 <div class="imagenes-derecha">
-                    <img src="/recursos/imagenes/pruebas/emf.png" alt="Escena 1" class="foto_pruebas">
-                    <img src="/recursos/imagenes/pruebas/spirirt-Photoroom.png" alt="Escena 2" class="foto_pruebas">
-                    <img src="/recursos/imagenes/pruebas/diario-Photoroom.png" alt="Escena 3" class="foto_pruebas">
+                    <img src="/recursos/imagenes/pruebas/emf.png" alt="Escena 1" class="foto_pruebas"
+                        onclick="abrirpopup(0,0)">
+                    <img src="/recursos/imagenes/pruebas/spirirt-Photoroom.png" alt="Escena 2" class="foto_pruebas"
+                        onclick="abrirpopup(0,1)">
+                    <img src="/recursos/imagenes/pruebas/diario-Photoroom.png" alt="Escena 3" class="foto_pruebas"
+                        onclick="abrirpopup(0,2)">
                 </div>
             </div>
             <div class="apartados">
@@ -180,7 +221,8 @@
                         en una de nuestras partidas es exactamente la misma que el resto de fantasmas.</p>
                     <p>Es el primer fantasma de la lista, por lo que es el preseleccionado en caso de que no elijas
                         ninguno en el libro.</p>
-                    <img src="/recursos/imagenes/fantasmas/espiritu.png" alt=""
+                    <img id="popup_espiritu" src="/recursos/imagenes/fantasmas/espiritu.png" alt=""
+                        onclick="abrirpopup(1,0)"
                         style="width: 120px; height: 140px; padding-left: 180px; padding-top: 40px;">
                 </article>
             </div>
@@ -195,10 +237,12 @@
                 <h2>ESPECTRO</h2>
 
                 <div class="imagenes-derecha">
-                    <img src="/recursos/imagenes/pruebas/emf.png" alt="Escena 1" class="foto_pruebas">
-                    <img src="/recursos/imagenes/pruebas/spirirt-Photoroom.png" alt="Escena 2" class="foto_pruebas">
+                    <img src="/recursos/imagenes/pruebas/emf.png" alt="Escena 1" class="foto_pruebas"
+                        onclick="abrirpopup(2,0)">
+                    <img src="/recursos/imagenes/pruebas/spirirt-Photoroom.png" alt="Escena 2" class="foto_pruebas"
+                        onclick="abrirpopup(2,1)">
                     <img src="/recursos/imagenes/pruebas/dots.png" alt="Escena 3" class="foto_pruebas"
-                        style="height: auto; width: 42px;">
+                        style="height: auto; width: 42px;" onclick="abrirpopup(2,2)">
                 </div>
             </div>
             <div class="apartados">
@@ -233,27 +277,87 @@
                         sensores de movimiento justo encima de los montones de sal, si se activa el sensor pero no se ha
                         pisado la sal es un espectro.</p>
                     <p>Si inicia una cacería desde un punto cercano a un jugador que no es su habitación podemos
-                        sospechar que se trata de un espectro, aun que tambien puede ser una banshee, un espíritu (aun que estos no se pueden teletransportar) o un
+                        sospechar que se trata de un espectro, aun que tambien puede ser una banshee, un espíritu (aun
+                        que estos no se pueden teletransportar) o un
                         mimico.</p>
-                    <p>Si tenemos disponible el circulo de invocación podemos colocar una pila de sal en el centro antes de summonearlo, si no la pisa es un espectro o un mímico imitandole.</p>
+                    <p>Si tenemos disponible el circulo de invocación podemos colocar una pila de sal en el centro antes
+                        de summonearlo, si no la pisa es un espectro o un mímico imitandole.</p>
                 </article>
                 <article>
                     <h3>DATOS DE INTERÉS: </h3>
                     <p>Aun que no pisen la sal y puedan atravesar paredes su skin es la misma que para el resto de
                         fantasmas, no podemos identificarlo por ella.</p>
-                    <p>Igualmente no puede ser distinguido por el sonido de sus pisadas ni por atravesar puertas o paredes durante una caza ya que lo puede hacer cualquier otro fantasma.</p>
+                    <p>Igualmente no puede ser distinguido por el sonido de sus pisadas ni por atravesar puertas o
+                        paredes durante una caza ya que lo puede hacer cualquier otro fantasma.</p>
                     <img src="/recursos/imagenes/fantasmas/espectro_dibujo.png" alt=""
                         style="width: 140px; height: 120px; padding-left: 160px; padding-top: 90px">
 
                 </article>
             </div>
         </section>
+        <div id="popups"></div>
     </main>
 
+    <script>
+        const videos = [
+            ['/recursos/videos/video_espectro.mp4', '/recursos/videos/emf2.mp4', '/recursos/videos/video3.mp4'],
+            ['/recursos/videos/video_huellas1.mp4', '/recursos/videos/huellas2.mp4', '/recursos/videos/huellas3.mp4'],
+            ['/recursos/videos/esc1.mp4', '/recursos/videos/esc2.mp4', '/recursos/videos/esc3.mp4'],
+            ['/recursos/videos/temp1.mp4', '/recursos/videos/temp2.mp4', '/recursos/videos/temp3.mp4'],
+            ['/recursos/videos/dots1.mp4', '/recursos/videos/dots2.mp4', '/recursos/videos/dots3.mp4'],
+            ['/recursos/videos/orbes1.mp4', '/recursos/videos/orbes2.mp4', '/recursos/videos/orbes3.mp4'],
+            ['/recursos/videos/caja1.mp4', '/recursos/videos/caja2.mp4', '/recursos/videos/caja3.mp4'
+        ;
+            ['/recursos/videos/caja1.mp4', '/recursos/videos/caja2.mp4', '/recursos/videos/caja3.mp4']
+        ];
+        const pruebaDescriptions = [
+            ["Descripción EMF Nivel 1", "Holiholiholi", "Descripción EMF Nivel 3"],
+            ["Descripción UV Nivel 1", "Descripción UV Nivel 2", "Descripción UV Nivel 3"],
+            ["Descripción Escritura Nivel 1", "Descripción Escritura Nivel 2", "Descripción Escritura Nivel 3"],
+            ["Descripción Temperatura Nivel 1", "Descripción Temperatura Nivel 2", "Descripción Temperatura Nivel 3"],
+            ["Descripción DOTS Nivel 1", "Descripción DOTS Nivel 2", "Descripción DOTS Nivel 3"],
+            ["Descripción Orbes Nivel 1", "Descripción Orbes Nivel 2", "Descripción Orbes Nivel 3"],
+            ["Descripción Caja Nivel 1", "Descripción Caja Nivel 2", "Descripción Caja Nivel 3"
+            ];
+            ["Descripción Caja Nivel 1", "Descripción Caja Nivel 2", "Descripción Caja Nivel 3"]
+        ];
+
+        function abrirpopup(galeria, indice) {
+            const popupId = `popup${galeria * 3 + indice}`;
+            let popup = document.getElementById(popupId);
+            if (!popup) {
+                popup = document.createElement('div');
+                popup.className = 'popup';
+                popup.id = popupId;
+                popup.innerHTML = `
+<video src="${videos[galeria][indice]}" controls="false" autoplay loop></video>
+<div class="descripcion_video">
+<h3>Prueba ${galeria + 1} Nivel ${indice + 1}:</h3>
+<p>${pruebaDescriptions[galeria][indice]}</p>
+</div>
+`;
+                document.getElementById('popups').appendChild(popup);
+            }
+            popup.classList.add("active");
+            popup.querySelector('video').play();
+        }
+
+        window.addEventListener("click", function (event) {
+            if (!event.target.closest('.gallery img')) {
+                for (let i = 0; i < 7; i++) {
+                    for (let j = 0; j < 3; j++) {
+                        const popupId = `popup${i * 3 + j}`;
+                        const popup = document.getElementById(popupId);
+                        if (popup && !popup.contains(event.target)) {
+                            popup.classList.remove("active");
+                            popup.querySelector('video').pause();
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
 </body>
-
-
-
-
 
 </html>

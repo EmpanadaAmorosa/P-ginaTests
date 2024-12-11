@@ -4,15 +4,296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phasmo Guía</title>
-    <link rel="stylesheet" media="all" href="recursos/estilos.css" />
+    <title>Pruebas - Phasmoguía</title>
     <link rel="shortcut icon" href="recursos/icono.ico" type="image/x-icon">
+    <style>
+        @font-face {
+            font-family: 'letra';
+            src: url('/recursos/letra.ttf') format('truetype');
+        }
+
+        html {
+            scrollbar-width: none;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: #eee;
+            min-height: 100vh;
+            overflow-y: scroll;
+        }
+
+        #video_fondo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        main {
+            overflow-y: scroll;
+            padding-bottom: 500px;
+            position: fixed;
+            padding-top: 30px;
+            height: 80%;
+            width: 90%;
+            overflow: hidden;
+            overflow-y: scroll;
+            scrollbar-width: none;
+            margin-top: 140px;
+            margin-bottom: 20px;
+            margin-left: 8%;
+        }
+
+        nav {
+            background-image: url("/recursos/imagenes/nav/lilafondo.PNG");
+            background-size: cover;
+            background-position: center center;
+            display: flex;
+            padding: 10px;
+            border-radius: 15px;
+            height: 100px;
+            width: 90%;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            font-size: 30px;
+            box-shadow: 20px 20px 10px black;
+            margin-top: 1%;
+            color: #000000;
+            font-family: 'letra', monospace;
+            margin-bottom: 3%;
+        }
+
+        nav a:link {
+            color: black;
+            text-decoration: none;
+            font-family: 'letra';
+        }
+
+        nav a:visited {
+            color: black;
+            text-decoration: none;
+            font-family: 'letra';
+        }
+
+        .menu_desplegables_y_logo {
+            display: flex;
+            align-items: center;
+            gap: 1px;
+            font-family: 'letra';
+        }
+
+        .menu_desplegables_y_logo ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-family: 'letra';
+        }
+
+        .menu_desplegables_y_logo .desplegable {
+            position: relative;
+        }
+
+        .menu_desplegables_y_logo .desplegable p {
+            background-color: inherit;
+            padding: 8px 16px;
+            margin: 0;
+            width: 80px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            border-radius: 10px;
+            font-family: 'letra';
+        }
+
+        .menu_desplegables_y_logo .contenido-desplegable {
+            display: none;
+            position: absolute;
+            z-index: 1;
+            min-width: 140px;
+            text-align: left;
+            padding: 10px;
+            border: 2px solid black;
+            font-family: 'letra';
+        }
+
+        .menu_desplegables_y_logo .contenido-desplegable a {
+            display: block;
+            width: 100%;
+            padding: 5px 2px;
+            text-decoration: none;
+            color: black;
+            transition: background-color 0.3s ease;
+            border-radius: 10px;
+            break-inside: avoid-column;
+            font-family: 'letra';
+        }
+
+        .menu_desplegables_y_logo .contenido-desplegable a:hover {
+            color: rgb(116, 39, 126);
+        }
+
+        .menu_desplegables_y_logo .desplegable:hover .contenido-desplegable {
+            display: block;
+        }
+
+        .logo {
+            width: 100px;
+            margin-right: 300px;
+            margin-left: 30px;
+        }
+
+        h2 {
+            font-size: 4em;
+            text-align: center;
+            justify-content: center;
+            margin-left: 120px;
+            color: rgb(66, 16, 73);
+            font-family: 'letra', monospace;
+            margin-bottom: -10px;
+            margin-top: -2px;
+            color: rgb(66, 16, 73);
+            text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #feffff, -2px 2px 0 #ffffff, -2px -2px 0 #e5e7e9, 2px 0px 0 #ffffff, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+        }
+
+        #btnArriba {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: rgb(116, 39, 126);
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            z-index: 1000;
+        }
+
+        #btnArriba:hover {
+            background-color: rgb(51, 13, 56);
+        }
+
+        #espiritu {
+            scroll-margin-top: 85px;
+        }
+
+
+
+
+        .contenedor_de_pruebas {
+            display: flex;
+        }
+
+        .container_pruebas {
+            width: 60%;
+            height: 300px;
+            margin-left: 35%;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgb(116, 39, 126);
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 1%;
+            margin-top: 1%;
+            font-family: 'letra';
+        }
+
+        .container_pruebas h2{
+            margin-left: 0px;
+            font-size: 3em;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+
+        .gallery img {
+            height: 105px;
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius: 8px;
+            filter: drop-shadow(3px 3px 5px black);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.2);
+        }
+
+        .posibles_fantasmas {
+            margin-top: 20px;
+            font-size: x-large;
+            /* display: none; */
+        }
+
+        .posibles_fantasmas p {
+            font-size: xx-large;
+        }
+
+        #lista_fantasmas{
+            margin-top: -20px;
+        }
+
+
+        /* Carrusel */
+        .carousel {
+            margin-top: 1000px;
+            position: relative;
+            width: 600px;
+            /* Ancho del carrusel */
+            height: 400px;
+            /* Alto del carrusel */
+            overflow: hidden;
+            /* Oculta imágenes fuera del contenedor */
+        }
+
+        .carousel img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            /* Las imágenes son invisibles por defecto */
+            transition: opacity 1s ease;
+            /* Transición suave */
+        }
+
+        .carousel img.active {
+            opacity: 1;
+            /* Solo la imagen activa es visible */
+        }
+    </style>
 </head>
 
 <body>
 
-    <video src="/recursos/video_fondo.mp4" muted autoplay loop></video>
-
+    <video id="video_fondo" src="/recursos/video_fondo.mp4" muted autoplay loop></video>
 
     <nav>
         <div class="menu_desplegables_y_logo">
@@ -50,7 +331,6 @@
                         <a href="/fantasmas.html#raiju">Raiju</a>
                         <a href="/fantasmas.html#obake">Obake</a>
                         <a href="/fantasmas.html#mimico">Mímico</a>
-                    </div>
                 </li>
                 <li class="desplegable">
                     <a href="pruebas.html"
@@ -123,11 +403,180 @@
         </div>
     </nav>
 
+
+
+
+
+
+
+
     <main>
 
+        <a id="btnArriba" href="#espiritu">&#x2191;</a>
+
+        <!-- Descubridor de fantasmas -->
+        <div class="contenedor_de_pruebas" id="espiritu">
+            <div class="container_pruebas">
+                <h2>¿QUE PRUEBAS ENCONTRASTE?</h2>
+                <div class="gallery">
+                    <img src="recursos\imagenes\pruebas\emf.png" alt="emf5">
+                    <img src="recursos\imagenes\pruebas\diario-Photoroom.png" alt="escritura">
+                    <img src="recursos\imagenes\pruebas\dots.png" alt="dots">
+                    <img src="recursos\imagenes\pruebas\huellas.png" alt="ultravioleta">
+                    <img src="recursos\imagenes\pruebas\orbe-Photoroom.png" alt="orbes">
+                    <img src="recursos\imagenes\pruebas\spirirt-Photoroom.png" alt="spirit box">
+                    <img src="recursos\imagenes\pruebas\termometro-Photoroom.png" alt="temperaturas">
+                </div>
+
+                <div class="posibles_fantasmas" id="posibles_fantasmas">
+                    <p>POSIBLES FANTASMAS:</p>
+                    <div id="lista_fantasmas"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Carrusel -->
+        <div id="carousel" class="carousel">
+            <img src="/recursos/imagenes/pruebas/emf/emf_tier1.png" alt="Imagen 1" class="active">
+            <img src="/recursos/imagenes/pruebas/emf/emf_tier2.png" alt="Imagen 2">
+            <img src="/recursos/imagenes/pruebas/emf/emf_tier3.png" alt="Imagen 3">
+        </div>
 
     </main>
 
 </body>
+
+<!-- Carrusel -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const images = document.querySelectorAll('#carousel img'); // Seleccionar imágenes
+        let currentIndex = 0; // Índice de la imagen actual
+
+        function changeImage() {
+            // Quitar la clase "active" de la imagen actual
+            images[currentIndex].classList.remove('active');
+
+            // Calcular el índice de la siguiente imagen
+            currentIndex = (currentIndex + 1) % images.length;
+
+            // Añadir la clase "active" a la nueva imagen
+            images[currentIndex].classList.add('active');
+        }
+
+        // Cambiar la imagen cada 2 segundos
+        setInterval(changeImage, 2000);
+    });
+
+</script>
+
+<!-- Descubridor de fantasmas -->
+<script>
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const imagenes_pruebas = document.querySelectorAll('.gallery img');
+        const possibleGhostsDiv = document.getElementById('lista_fantasmas');
+        const posibles_fantasmas = document.getElementById('posibles_fantasmas');
+
+        const evidenciaFantasmas = {
+            "Espíritu": ["emf5", "spirit box", "escritura"],
+            "Espectro": ["emf5", "spirit box", "dots"],
+            "Ente": ["spirit box", "ultravioleta", "dots"],
+            "Poltergeist": ["spirit box", "ultravioleta", "escritura "],
+            "Banshee": ["ultravioleta", "orbes", "dots"],
+            "Jinn": ["emf5", "ultravioleta", "temperaturas"],
+            "Pesadilla": ["espíritu caja", "orbes", "escritura"],
+            "Revenant": ["orbes", "escritura", "temperaturas"],
+            "Sombra": ["emf5", "escritura", "temperaturas"],
+            "Demonio": ["ultravioleta", "escritura", "temperaturas"],
+            "Yurei": ["orbes", "temperaturas", "dots"],
+            "Oni": ["emf5", "temperaturas", "dots"],
+            "Yokai": ["spirit box", "orbes", "dots"],
+            "Hantu": ["ultravioleta", "orbes", "temperaturas"],
+            "Goryo": ["emf5", "ultravioleta", "dots"],
+            "Myling": ["emf5", "ultravioleta", "escritura"],
+            "Onryo": ["spirit box", "orbes", "temperaturas"],
+            "Gemelos": ["emf5", "espíritu box", "temperaturas"],
+            "Raiju": ["emf5", "orbes", "dots"],
+            "Obake": ["emf5", "ultravioleta", "orbes"],
+            "Mímico": ["spirit box", "ultravioleta", "temperaturas", "orbes"],
+            "Moroi": ["spirit box", "escritura", "temperaturas"],
+            "Deogen": ["spirit box", "escritura", "puntos"],
+            "Thaye": ["orbes", "escritura", "puntos"]
+        };
+
+        let evidenciaSeleccionada = []; // Lista de evidencias confirmadas
+        let evidenciaDescartada = []; // Lista de evidencias descartadas
+
+        // Mostrar todos los fantasmas posibles al cargar la página
+        mostrarFantasmasPosibles(Object.keys(evidenciaFantasmas));
+
+        // Añade evento de click a cada imagen
+        imagenes_pruebas.forEach(imagen => {
+            imagen.addEventListener('click', function () {
+                const tipoEvidencia = imagen.alt;
+
+                // Determinar estado actual
+                if (!evidenciaSeleccionada.includes(tipoEvidencia) && !evidenciaDescartada.includes(tipoEvidencia)) {
+                    // Si no está seleccionada ni descartada: confirmarla (verde)
+                    imagen.style.filter = 'drop-shadow(3px 3px 5px rgba(0, 255, 0, 0.4))';
+                    evidenciaSeleccionada.push(tipoEvidencia);
+                } else if (evidenciaSeleccionada.includes(tipoEvidencia)) {
+                    // Si está confirmada, descartarla (rojo)
+                    imagen.style.filter = 'drop-shadow(3px 3px 5px rgba(255, 0, 0, 0.4))';
+                    evidenciaSeleccionada = evidenciaSeleccionada.filter(ev => ev !== tipoEvidencia);
+                    evidenciaDescartada.push(tipoEvidencia);
+                } else if (evidenciaDescartada.includes(tipoEvidencia)) {
+                    // Si está descartada, resetearla (negro)
+                    imagen.style.filter = 'drop-shadow(3px 3px 5px black)';
+                    evidenciaDescartada = evidenciaDescartada.filter(ev => ev !== tipoEvidencia);
+                }
+
+                // Calcular y mostrar los fantasmas posibles
+                const fantasmasPosibles = deducirFantasmasPosibles(evidenciaSeleccionada, evidenciaDescartada, evidenciaFantasmas);
+
+                // // Mostrar el div solo si hay algo seleccionado
+                // if (evidenciaSeleccionada.length > 0 || evidenciaDescartada.length > 0) {
+                //     posibles_fantasmas.style.display = 'block';
+                // } else {
+                //     posibles_fantasmas.style.display = 'none';
+                // }
+
+                mostrarFantasmasPosibles(fantasmasPosibles);
+            });
+        });
+
+        // Función para deducir los fantasmas posibles
+        function deducirFantasmasPosibles(evidencia, descartada, datosFantasmas) {
+            return Object.keys(datosFantasmas).filter(fantasma => {
+                // El fantasma debe contener todas las evidencias seleccionadas
+                const contieneEvidencias = evidencia.every(ev => datosFantasmas[fantasma].includes(ev));
+                // El fantasma no debe requerir ninguna evidencia descartada
+                const noContieneDescartadas = !descartada.some(ev => datosFantasmas[fantasma].includes(ev));
+                return contieneEvidencias && noContieneDescartadas;
+            });
+        }
+
+        // Función para mostrar los fantasmas posibles
+        function mostrarFantasmasPosibles(fantasmasPosibles) {
+            // Limpiar el contenido del div
+            possibleGhostsDiv.innerHTML = '';
+
+            // Verificar si hay fantasmas posibles
+            if (fantasmasPosibles.length === 0) {
+                possibleGhostsDiv.textContent = 'Ninguno'; // Mostrar 'Ninguno' si no hay fantasmas
+            } else {
+                // Crear una cadena de texto separada por comas y establecerla como contenido
+                possibleGhostsDiv.textContent = fantasmasPosibles.join(', ');
+            }
+        }
+
+
+    });
+
+
+</script>
+
+
 
 </html>
