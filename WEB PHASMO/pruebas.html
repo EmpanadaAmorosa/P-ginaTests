@@ -179,70 +179,72 @@
                 </div>
             </div>
 
-        <div class="container_pruebas">
+            <div class="container_pruebas">
                 <div class="header">
                     <h1>PROYECTOR D.O.T.S</h1>
-                <img src="/recursos/imagenes/pruebas/dots.png" alt="Ultravioletas" style="width: 80px;">
-            </div>
+                    <img src="/recursos/imagenes/pruebas/dots.png" alt="Ultravioletas" style="width: 80px;">
+                </div>
                 <p class="description">Algunos fantasmas interactúan con el proyector DOTS.</p>
-            <div class="gallery">
-                <img src="/recursos/imagenes/pruebas/dots/dots1.png" alt="Nivel 1" onclick="abrirpopup(4,0)">
-                <img src="/recursos/imagenes/pruebas/dots/dots2.png" alt="Nivel 2" onclick="abrirpopup(4,1)">
-                <img src="/recursos/imagenes/pruebas/dots/dots3.png" alt="Nivel 3" onclick="abrirpopup(4,2)">
+                <div class="gallery">
+                    <img src="/recursos/imagenes/pruebas/dots/dots1.png" alt="Nivel 1" onclick="abrirpopup(4,0)">
+                    <img src="/recursos/imagenes/pruebas/dots/dots2.png" alt="Nivel 2" onclick="abrirpopup(4,1)">
+                    <img src="/recursos/imagenes/pruebas/dots/dots3.png" alt="Nivel 3" onclick="abrirpopup(4,2)">
+                </div>
             </div>
-        </div>
 
-        <div class="container_pruebas">
+            <div class="container_pruebas">
                 <div class="header">
                     <h1>ORBES ESPECTRALES</h1>
-                <img src="/recursos/imagenes/pruebas/orbe-Photoroom.png" alt="orbes">
-            </div>
+                    <img src="/recursos/imagenes/pruebas/orbe-Photoroom.png" alt="orbes">
+                </div>
                 <p class="description">Algunos fantasmas aparecen como orbes.</p>
-            <div class="gallery">
-                <img src="/recursos/imagenes/pruebas/orbes/orbes1.png" alt="Nivel 1" onclick="abrirpopup(5,0)">
-                <img src="/recursos/imagenes/pruebas/orbes/orbes2.png" alt="Nivel 2" onclick="abrirpopup(5,1)">
-                <img src="/recursos/imagenes/pruebas/orbes/orbes3.png" alt="Nivel 3" onclick="abrirpopup(5,2)">
+                <div class="gallery">
+                    <img src="/recursos/imagenes/pruebas/orbes/orbes1.png" alt="Nivel 1" onclick="abrirpopup(5,0)">
+                    <img src="/recursos/imagenes/pruebas/orbes/orbes2.png" alt="Nivel 2" onclick="abrirpopup(5,1)">
+                    <img src="/recursos/imagenes/pruebas/orbes/orbes3.png" alt="Nivel 3" onclick="abrirpopup(5,2)">
+                </div>
             </div>
-        </div>
 
-    <div class="container_pruebas">
+            <div class="container_pruebas">
                 <div class="header">
                     <h1>CAJA ESPECTRAL</h1>
-            <img src="/recursos/imagenes/pruebas/spirirt-Photoroom.png" alt="Ultravioletas" style="width: 120px;">
-        </div>
+                    <img src="/recursos/imagenes/pruebas/spirirt-Photoroom.png" alt="Ultravioletas"
+                        style="width: 120px;">
+                </div>
                 <p class="description">Algunos fantasmas responden a la caja espectral.</p>
-        <div class="gallery">
-            <img src="/recursos/imagenes/pruebas/caja/caja1.png" alt="Nivel 1" onclick="abrirpopup(6,0)">
-            <img src="/recursos/imagenes/pruebas/caja/caja2.png" alt="Nivel 2" onclick="abrirpopup(6,1)">
-            <img src="/recursos/imagenes/pruebas/caja/caja3.png" alt="Nivel 3" onclick="abrirpopup(6,2)">
+                <div class="gallery">
+                    <img src="/recursos/imagenes/pruebas/caja/caja1.png" alt="Nivel 1" onclick="abrirpopup(6,0)">
+                    <img src="/recursos/imagenes/pruebas/caja/caja2.png" alt="Nivel 2" onclick="abrirpopup(6,1)">
+                    <img src="/recursos/imagenes/pruebas/caja/caja3.png" alt="Nivel 3" onclick="abrirpopup(6,2)">
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-        <div id="popups">
-        </div>
+        <div id="popups"></div>
+
     </main>
+
     <script>
+
         const videos = [
             ['/recursos/videos/video_espectro.mp4', '/recursos/videos/emf2.mp4', '/recursos/videos/video3.mp4'],
             ['/recursos/videos/video_huellas1.mp4', '/recursos/videos/huellas2.mp4', '/recursos/videos/huellas3.mp4'],
-            ['/recursos/videos/esc1.mp4','/recursos/videos/esc2.mp4','/recursos/videos/esc3.mp4'],
-            ['/recursos/videos/temp1.mp4','/recursos/videos/temp2.mp4','/recursos/videos/temp3.mp4'],
-            ['/recursos/videos/dots1.mp4','/recursos/videos/dots2.mp4','/recursos/videos/dots3.mp4'],
-            ['/recursos/videos/orbes1.mp4','/recursos/videos/orbes2.mp4','/recursos/videos/orbes3.mp4'],
-            ['/recursos/videos/caja1.mp4','/recursos/videos/caja2.mp4','/recursos/videos/caja3.mp4']
+            ['/recursos/videos/esc1.mp4', '/recursos/videos/esc2.mp4', '/recursos/videos/esc3.mp4'],
+            ['/recursos/videos/temp1.mp4', '/recursos/videos/temp2.mp4', '/recursos/videos/temp3.mp4'],
+            ['/recursos/videos/dots1.mp4', '/recursos/videos/dots2.mp4', '/recursos/videos/dots3.mp4'],
+            ['/recursos/videos/orbes1.mp4', '/recursos/videos/orbes2.mp4', '/recursos/videos/orbes3.mp4'],
+            ['/recursos/videos/caja1.mp4', '/recursos/videos/caja2.mp4', '/recursos/videos/caja3.mp4']
         ];
 
         const pruebaDescriptions = [
-        ["Descripción EMF Nivel 1", "Holiholiholi", "Descripción EMF Nivel 3"],
-        ["Descripción UV Nivel 1", "Descripción UV Nivel 2", "Descripción UV Nivel 3"],
-        ["Descripción Escritura Nivel 1", "Descripción Escritura Nivel 2", "Descripción Escritura Nivel 3"],
-        ["Descripción Temperatura Nivel 1", "Descripción Temperatura Nivel 2", "Descripción Temperatura Nivel 3"],
-        ["Descripción DOTS Nivel 1", "Descripción DOTS Nivel 2", "Descripción DOTS Nivel 3"],
-        ["Descripción Orbes Nivel 1", "Descripción Orbes Nivel 2", "Descripción Orbes Nivel 3"],
-        ["Descripción Caja Nivel 1", "Descripción Caja Nivel 2", "Descripción Caja Nivel 3"] // Sin coma adicional aquí
-    ];
-    
+            ["Descripción EMF Nivel 1", "Holiholiholi", "Descripción EMF Nivel 3"],
+            ["Descripción UV Nivel 1", "Descripción UV Nivel 2", "Descripción UV Nivel 3"],
+            ["Descripción Escritura Nivel 1", "Descripción Escritura Nivel 2", "Descripción Escritura Nivel 3"],
+            ["Descripción Temperatura Nivel 1", "Descripción Temperatura Nivel 2", "Descripción Temperatura Nivel 3"],
+            ["Descripción DOTS Nivel 1", "Descripción DOTS Nivel 2", "Descripción DOTS Nivel 3"],
+            ["Descripción Orbes Nivel 1", "Descripción Orbes Nivel 2", "Descripción Orbes Nivel 3"],
+            ["Descripción Caja Nivel 1", "Descripción Caja Nivel 2", "Descripción Caja Nivel 3"]
+        ];
 
         function abrirpopup(galeria, indice) {
             const popupId = `popup${galeria * 3 + indice}`;
@@ -254,35 +256,35 @@
                 popup.innerHTML = `
                     <video src="${videos[galeria][indice]}" controls="false" autoplay loop></video>
                     <div class="descripcion_video">
-                        <h3>Prueba ${galeria +1} Nivel ${indice+1}:</h3>
+                        <h3>Prueba ${galeria + 1} Nivel ${indice + 1}:</h3>
                         <p>${pruebaDescriptions[galeria][indice]}</p>
                     </div>
                 `;
                 document.getElementById('popups').appendChild(popup);
             }
-        popup.classList.add("active"); // Use add instead of toggle for more predictable behavior
+            popup.classList.add("active"); // Use add instead of toggle for more predictable behavior
             // play video when popup opens
             popup.querySelector('video').play();
         }
 
-        window.addEventListener("click", function(event) {
-        if (!event.target.closest('.gallery img') ){
-            for (let i = 0; i < 7; i++) {
-                for (let j = 0; j < 3; j++) {
-                    const popupId = `popup${i * 3 + j}`;
-                    const popup = document.getElementById(popupId);
-                    if (popup && !popup.contains(event.target)) {
-                        popup.classList.remove("active");
-                        // pause video when popup closes
-                        popup.querySelector('video').pause();
+        window.addEventListener("click", function (event) {
+            if (!event.target.closest('.gallery img')) {
+                for (let i = 0; i < 7; i++) {
+                    for (let j = 0; j < 3; j++) {
+                        const popupId = `popup${i * 3 + j}`;
+                        const popup = document.getElementById(popupId);
+                        if (popup && !popup.contains(event.target)) {
+                            popup.classList.remove("active");
+                            // pause video when popup closes
+                            popup.querySelector('video').pause();
+                        }
                     }
                 }
             }
-        }
         });
     </script>
 
-    </body>
+</body>
 
 
 
