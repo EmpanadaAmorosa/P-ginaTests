@@ -10,11 +10,13 @@ body {
     background-color: #111;
     color: #eee;
     min-height: 100vh;
-    overflow-y: auto;
+    min-height: 100vh;
+    overflow-y: scroll;
     scrollbar-width: none;
+    overflow: hidden;
 }
 
-#video_fondo {
+video {
     position: fixed;
     top: 0;
     left: 0;
@@ -27,12 +29,17 @@ body {
 }
 
 main {
-    padding-bottom: 50px;
+    overflow-y: scroll;
+    padding-bottom: 500px;
     padding-top: 30px;
-    overflow-y: auto;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
     margin-top: 140px;
-    width: 90%;
-    justify-content: center;
+    margin-bottom: 20px;
+    width: 91%; /* Added */
+    box-sizing: border-box; /* Added to prevent horizontal scrollbar */
     margin-left: 5%;
 }
 
@@ -58,7 +65,13 @@ nav {
     margin-bottom: 3%;
 }
 
-nav a {
+nav a:link {
+    color: black;
+    text-decoration: none;
+    font-family: 'letra';
+}
+
+nav a:visited {
     color: black;
     text-decoration: none;
     font-family: 'letra';
@@ -130,4 +143,229 @@ nav a {
     width: 100px;
     margin-right: 300px;
     margin-left: 30px;
+}
+
+
+
+#btnArriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: rgb(116, 39, 126);
+    color: white;
+    text-decoration: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 24px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    z-index: 1000;
+}
+
+#btnArriba:hover {
+    background-color: rgb(51, 13, 56);
+}
+
+#espiritu {
+    scroll-margin-top: 85px;
+}
+
+
+.contenedor_de_pruebas {
+    display: flex;
+}
+
+.container_pruebas {
+    width: 40%;
+    margin-left: 5%;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgb(116, 39, 126);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    filter: drop-shadow(5px 5px 5px rgb(49, 49, 49));
+}
+
+.header h1 {
+    font-size: 4em;
+    text-align: center;
+    color: rgb(66, 16, 73);
+    text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #feffff, -2px 2px 0 #ffffff, -2px -2px 0 #e5e7e9, 2px 0px 0 #ffffff, 0px 2px 0 #e5e7e9, -2px 0px 0 #e6e9ec, 0px -2px 0 #d9dde2;
+    margin: 0;
+    font-family: 'letra';
+}
+
+.description {
+    font-size: 1.3em;
+    color: #ddd;
+    text-shadow: 1px 1px 2px black;
+    margin-bottom: 20px;
+}
+
+.gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 30%;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    border: 1px solid #555;
+    border-radius: 8px;
+    filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.7));
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+h2 {
+    font-size: 4em;
+    text-align: center;
+    justify-content: center;
+    margin-left: 120px;
+    color: rgb(66, 16, 73);
+    font-family: 'letra', monospace;
+    margin-bottom: -10px;
+    margin-top: -2px;
+    color: rgb(66, 16, 73);
+    text-shadow: 2px 2px 0 #ffffff, 2px -2px 0 #feffff, -2px 2px 0 #ffffff, -2px -2px 0 #e5e7e9, 2px 0px 0 #ffffff, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+}
+
+.container_pruebas {
+    float: right;
+    width: 60%;
+    height: 300px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgb(116, 39, 126);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.9);
+    margin-bottom: 1%;
+    margin-top: 1%;
+    font-family: 'letra';
+}
+
+.container_pruebas h2 {
+    margin-left: 0px;
+    font-size: 3em;
+}
+
+.gallery {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.gallery img {
+    height: 105px;
+    cursor: pointer;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 8px;
+    filter: drop-shadow(3px 3px 5px black);
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+.posibles_fantasmas {
+    margin-top: 20px;
+    font-size: x-large;
+    /* display: none; */
+}
+
+.posibles_fantasmas p {
+    font-size: xx-large;
+}
+
+#lista_fantasmas {
+    margin-top: -20px;
+}
+
+
+/* Carrusel */
+.carousel {
+    margin-top: 10px;
+    position: relative;
+    width: 32%;
+    height: 400px;
+    overflow: hidden;
+    margin-right: 5px;
+    border: 2px solid rgb(91, 28, 100);
+    border-radius: 8px;
+    filter: drop-shadow(3px 3px 5px black);
+
+}
+
+.carousel img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease;
+
+}
+
+.carousel img.active {
+    opacity: 1;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%; /* Centrado vertical */
+    transform: translateY(-50%); /* Ajuste para centrar completamente */
+    background-color: rgb(91, 28, 100); /* Fondo semi-transparente */
+    color: white; /* Color del texto */
+    font-weight: bold;
+    border: none;
+    padding: 5px 13px; /* Espaciado del botón */
+    cursor: pointer;
+    z-index: 10; /* Asegura que los botones estén encima de las imágenes */
+    font-size: 25px;
+    display: flex; /* Botones siempre visibles */
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.carousel-button.prev {
+    left: 10px; /* Posiciona el botón izquierdo */
+}
+
+.carousel-button.next {
+    right: 10px; /* Posiciona el botón derecho */
+}
+
+.carousel-button:hover {
+    background-color: rgb(60, 11, 66); /* Cambia el color al pasar el ratón */
 }

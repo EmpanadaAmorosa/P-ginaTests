@@ -51,6 +51,9 @@
                         <a href="/fantasmas.html#raiju">Raiju</a>
                         <a href="/fantasmas.html#obake">Obake</a>
                         <a href="/fantasmas.html#mimico">Mímico</a>
+                        <a href="/fantasmas.html#moroi">Moroi</a>
+                        <a href="/fantasmas.html#deogen">Deogen</a>
+                        <a href="/fantasmas.html#thaye">Thaye</a>
                 </li>
                 <li class="desplegable">
                     <a href="pruebas.html"
@@ -220,11 +223,14 @@
             </div>
         </div>
 
-        <div id="popups"></div>
-
     </main>
 
+    <div id="popups"></div>
+
     <script>
+
+        const nav = document.querySelector('nav');
+        const main = document.querySelector('main');
 
         const videos = [
             ['/recursos/videos/video_espectro.mp4', '/recursos/videos/emf2.mp4', '/recursos/videos/video3.mp4'],
@@ -265,6 +271,9 @@
             popup.classList.add("active"); // Use add instead of toggle for more predictable behavior
             // play video when popup opens
             popup.querySelector('video').play();
+
+            nav.style.filter = 'brightness(0.2)';
+            main.style.filter = 'brightness(0.2)';
         }
 
         window.addEventListener("click", function (event) {
@@ -277,6 +286,9 @@
                             popup.classList.remove("active");
                             // pause video when popup closes
                             popup.querySelector('video').pause();
+
+                            nav.style.filter = 'brightness(1)';
+                            main.style.filter = 'brightness(1)';
                         }
                     }
                 }
