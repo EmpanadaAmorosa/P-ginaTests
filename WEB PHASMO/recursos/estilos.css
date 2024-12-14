@@ -297,7 +297,6 @@ h2 {
 .posibles_fantasmas {
     margin-top: 20px;
     font-size: x-large;
-    /* display: none; */
 }
 
 .posibles_fantasmas p {
@@ -306,6 +305,15 @@ h2 {
 
 #lista_fantasmas {
     margin-top: -20px;
+}
+
+.posibles_fantasmas a:link, a:visited{
+    color: white;
+    text-decoration: none;
+}
+
+.posibles_fantasmas a:hover{
+    color: rgb(116, 39, 126);
 }
 
 

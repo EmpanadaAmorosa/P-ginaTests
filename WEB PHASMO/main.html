@@ -229,6 +229,33 @@
             "Thaye": ["orbes", "escritura", "dots"]
         };
 
+        const links_fantasmas = {
+            "Espíritu": "/fantasmas.html#espiritu",
+            "Espectro": "/fantasmas.html#espectro",
+            "Ente": "/fantasmas.html#ente",
+            "Poltergeist": "/fantasmas.html#poltergeist",
+            "Banshee": "/fantasmas.html#banshee",
+            "Jinn": "/fantasmas.html#jinn",
+            "Pesadilla": "/fantasmas.html#pesadilla",
+            "Revenant": "/fantasmas.html#revenant",
+            "Sombra": "/fantasmas.html#sombra",
+            "Demonio": "/fantasmas.html#demonio",
+            "Yurei": "/fantasmas.html#yurei",
+            "Oni": "/fantasmas.html#oni",
+            "Yokai": "/fantasmas.html#yokai",
+            "Hantu": "/fantasmas.html#hantu",
+            "Goryo": "/fantasmas.html#goryo",
+            "Myling": "/fantasmas.html#myling",
+            "Onryo": "/fantasmas.html#onryo",
+            "Gemelos": "/fantasmas.html#gemelos",
+            "Raiju": "/fantasmas.html#raiju",
+            "Obake": "/fantasmas.html#obake",
+            "Mímico": "/fantasmas.html#mimico",
+            "Moroi": "/fantasmas.html#moroi",
+            "Deogen": "/fantasmas.html#deogen",
+            "Thaye": "/fantasmas.html#thaye"
+        };
+
         let evidenciaSeleccionada = []; // Lista de evidencias confirmadas
         let evidenciaDescartada = []; // Lista de evidencias descartadas
 
@@ -271,12 +298,18 @@
         }
 
         function mostrarFantasmasPosibles(fantasmasPosibles) {
-            possibleGhostsDiv.innerHTML = '';
+            possibleGhostsDiv.innerHTML = ''; // Limpiar el contenedor
 
             if (fantasmasPosibles.length === 0) {
                 possibleGhostsDiv.textContent = 'Ninguno'; // Mostrar 'Ninguno' si no hay fantasmas
             } else {
-                possibleGhostsDiv.textContent = fantasmasPosibles.join(', ');
+                // Crear una cadena con los nombres como enlaces separados por comas
+                const links = fantasmasPosibles.map(fantasma => {
+                    return `<a href="${links_fantasmas[fantasma]}"">${fantasma}</a>`;
+                }).join(', ');
+
+                // Insertar los enlaces como contenido HTML del contenedor
+                possibleGhostsDiv.innerHTML = links;
             }
         }
     });
