@@ -1848,31 +1848,82 @@
         const videos = [
             ['/recursos/videos/emf2.mp4'],
             ['/recursos/videos/video_espectro.mp4'],
-            ['/recursos/videos/esc1.mp4'],
-            ['/recursos/videos/temp1.mp4'],
-            ['/recursos/videos/dots1.mp4'],
-            ['/recursos/videos/orbes1.mp4'],
-            ['/recursos/videos/caja1.mp4']
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4'],
+            ['/recursos/videos/emf2.mp4']
         ];
 
         const pruebaDescriptions = [
             ["Descripción Espirítu"],
             ["Descripción Espectro"],
-            ["Descripción Escritura Nivel 1"],
-            ["Descripción Temperatura Nivel 1"],
-            ["Descripción DOTS Nivel 1"],
-            ["Descripción Orbes Nivel 1"],
-            ["Descripción Caja Nivel 1"]
+            ["Descripción Ente"],
+            ["Descripción Poltergeist"],
+            ["Descripción Banshee"],
+            ["Descripción Jinn"],
+            ["Descripción Pesadilla"],
+            ["Descripción Revenant"],
+            ["Descripción Sombra"],
+            ["Descripción Demonio"],
+            ["Descripción Yurei"],
+            ["Descripción Oni"],
+            ["Descripción Yokai"],
+            ["Descripción Hantu"],
+            ["Descripción Goryo"],
+            ["Descripción Mayling"],
+            ["Descripción Onryo"],
+            ["Descripción Gemelos"],
+            ["Descripción Raiju"],
+            ["Descripción Obake"],
+            ["Descripción Mímico"],
+            ["Descripción Moroi"],
+            ["Descripción Deogen"],
+            ["Descripción Thaye"]
         ];
 
         const fantasmas = [
             ["Espirítu"],
             ["Espectro"],
-            ["Descripción Escritura Nivel 1"],
-            ["Descripción Temperatura Nivel 1"],
-            ["Descripción DOTS Nivel 1"],
-            ["Descripción Orbes Nivel 1"],
-            ["Descripción Caja Nivel 1"]
+            ["Ente"],
+            ["Poltergeist"],
+            ["Banshee"],
+            ["Jinn"],
+            ["Pesadilla"],
+            ["Revenant"],
+            ["Sombra"],
+            ["Demonio"],
+            ["Yurei"],
+            ["Oni"],
+            ["Yokai"],
+            ["Hantu"],
+            ["Goryo"],
+            ["Mayling"],
+            ["Onryo"],
+            ["Gemelos"],
+            ["Raiju"],
+            ["Obake"],
+            ["Mímico"],
+            ["Moroi"],
+            ["Deogen"],
+            ["Thaye"]
         ];
 
         function abrirpopup(galeria) {
@@ -1901,7 +1952,7 @@
 
         window.addEventListener("click", function (event) {
             if (!event.target.closest('.apartados img')) {
-                for (let i = 0; i < 7; i++) {
+                for (let i = 0; i < 24; i++) {
                     const popupId = `popup${i * 3}`;
                     const popup = document.getElementById(popupId);
                     if (popup && !popup.contains(event.target)) {
