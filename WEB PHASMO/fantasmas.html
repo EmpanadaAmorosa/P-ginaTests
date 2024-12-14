@@ -1960,6 +1960,8 @@
                         // pause video when popup closes
                         popup.querySelector('video').pause();
 
+                        document.getElementById(popupId).remove();
+
                         nav.style.filter = 'brightness(1)';
                         main.style.filter = 'brightness(1)';
                     }
