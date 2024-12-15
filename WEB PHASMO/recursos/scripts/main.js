@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     const imagenes_pruebas = document.querySelectorAll('.gallery img');
     const possibleGhostsDiv = document.getElementById('lista_fantasmas');
-    const posibles_fantasmas = document.getElementById('posibles_fantasmas');
 
     const evidenciaFantasmas = {
         "Espíritu": ["emf5", "spirit box", "escritura"],
