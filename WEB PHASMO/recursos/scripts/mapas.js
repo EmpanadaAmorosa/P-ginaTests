@@ -2,15 +2,15 @@ const nav = document.querySelector('nav');
 const main = document.querySelector('main');
 
 const videos = [
-    ['/recursos/videos/video_espectro.mp4', '/recursos/videos/emf2.mp4', '/recursos/videos/video3.mp4'],
+    ['/recursos/videos/video_espectro.mp4', '/recursos/videos/emf2.mp4', '/recursos/videos/video_espectro.mp4', '/recursos/videos/video_espectro.mp4', '/recursos/videos/emf2.mp4', '/recursos/videos/video_espectro.mp4', '/recursos/videos/emf2.mp4', '/recursos/videos/video_espectro.mp4'],
     ['/recursos/videos/video_huellas1.mp4', '/recursos/videos/huellas2.mp4', '/recursos/videos/huellas3.mp4'],
-    ['/recursos/videos/esc1.mp4', '/recursos/videos/esc2.mp4', '/recursos/videos/esc3.mp4']
+    ['/recursos/videos/esc1.mp4', '/recursos/videos/esc2.mp4']
 ];
 
 const pruebaDescriptions = [
-    ["Descripción EMF Nivel 1", "Holiholiholi", "Descripción EMF Nivel 3"],
+    ["Descripción EMF Nivel 1", "Holiholiholi", "Descripción EMF Nivel 3", "Descripción EMF Nivel 1", "Holiholiholi", "Descripción EMF Nivel 3", "Descripción EMF Nivel 1", "Descripción EMF Nivel 3"],
     ["Descripción UV Nivel 1", "Descripción UV Nivel 2", "Descripción UV Nivel 3"],
-    ["Descripción Escritura Nivel 1", "Descripción Escritura Nivel 2", "Descripción Escritura Nivel 3"]
+    ["Descripción Escritura Nivel 1", "Descripción Escritura Nivel 2"]
 ];
 
 function abrirpopup(galeria, indice) {
